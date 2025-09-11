@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>IRCTC - Book Ticket</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+    }
+
+    /* Header */
+    .header {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 15px 40px; 
+      background: #fff;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .header h1 {
+      font-size: 30px;
+      font-weight: bold;
+      color: #003366;
+      margin: 0;
+    }
+
+    /* Main section with form and background */
+    .main {
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      background: url("https://thesamikhsya.com/wp-content/uploads/2025/01/VandeBharat.jpg") no-repeat right center/cover;
+      min-height: 90vh;
+      padding: 40px;
+    }
+
+    /* Booking box */
+    .booking-container {
+      background: #fff;
+      width: 420px;
+      padding: 25px;
+      border-radius: 8px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.2);
+    }
+
+    .booking-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #003366;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+
+    .form-grid input,
+    .form-grid select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+
+    .form-grid input[type="date"] {
+      padding: 8px;
+    }
+
+    .checkboxes {
+      margin: 20px 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      font-size: 14px;
+      color: #333;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 10px;
+    }
+
+    .buttons input {
+      flex: 1;
+      margin: 0 5px;
+      padding: 12px;
+      border: none;
+      border-radius: 4px;
+      font-weight: bold;
+      color: #fff;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .search-btn {
+      background: #f58220;
+    }
+
+    .easy-btn {
+      background: #ff6600;
+    }
+
+    .buttons input:hover {
+      opacity: 0.9;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="header">
+    <h1>INDIAN RAILWAYS</h1>
+  </div>
+
+  <!-- Main with booking form and train background -->
+  <div class="main">
+    <div class="booking-container">
+      <h2>BOOK TICKET</h2>
+      <form>
+        <div class="form-grid">
+          <input type="text" placeholder="From">
+          <input type="date" value="2025-09-09">
+          <input type="text" placeholder="To">
+          <select>
+            <option>All Classes</option>
+            <option>1A - First AC</option>
+            <option>2A - Second AC</option>
+            <option>3A - Third AC</option>
+            <option>SL - Sleeper</option>
+          </select>
+          <select>
+            <option>GENERAL</option>
+            <option>LADIES</option>
+            <option>SR.CITIZEN</option>
+          </select>
+        </div>
+
+        <div class="checkboxes">
+          <label><input type="checkbox"> Person With Disability Concession</label>
+          <label><input type="checkbox"> Flexible With Date</label>
+          <label><input type="checkbox"> Train with Available Berth</label>
+          <label><input type="checkbox"> Railway Pass Concession</label>
+        </div>
+
+        <div class="buttons">
+          <input type="submit" value="Search" class="search-btn">
+          <input type="submit" value="Easy Booking on AskDISHA" class="easy-btn">
+        </div>
+      </form>
+    </div>
+  </div>
+
+</body>
+</html>
