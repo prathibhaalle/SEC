@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Editable To-Do List</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    /* Basic Reset */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f4f4f4;
+      padding: 40px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .todo-container {
+      background: #0f0d0d;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      width: 400px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #a21313;
+    }
+
+    #todo-list {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 20px;
+    }
+
+    #todo-list li {
+      padding: 10px 14px;
+      font-size: 16px;
+      background: #c3b7b7;
+      border: 1px solid #866464;
+      border-radius: 4px;
+      margin-bottom: 8px;
+      transition: background 0.2s;
+      cursor: pointer;
+    }
+
+    #todo-list li:hover {
+      background: #f0f0f0;
+    }
+
+    input.edit-task {
+      width: 100%;
+      font-size: 16px;
+      padding: 8px;
+      border: 1px solid #bbb;
+      border-radius: 4px;
+      outline: none;
+    }
+
+    #add-task-container {
+      display: flex;
+      gap: 10px;
+    }
+
+    #add-task-input {
+      flex: 1;
+      font-size: 16px;
+      padding: 8px 10px;
+      border: 1px solid #bbb;
+      border-radius: 4px;
+    }
+
+    #add-task-button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 8px 14px;
+      font-size: 16px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    #add-task-button:hover {
+      background-color: #45a049;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 500px) {
+      .todo-container {
+        width: 100%;
+        padding: 20px;
+      }
+
+      #add-task-container {
+        flex-direction: column;
+      }
+
+      #add-task-button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="todo-container">
+    <h2>My To-Do List</h2>
+
+    <ul id="todo-list">
+      <li>Buy groceries</li>
+      <li>Walk the dog</li>
+      <li>Finish project</li>
+    </ul>
+
+    <div id="add-task-container">
+      <input type="text" id="add-task-input" placeholder="Add new task">
+      <button id="add-task-button">Add Task</button>
+    </div>
+  </div>
+
+  <script>
+    $(document).ready(function () {
+      // ✅ Double-click to edit task
+      $('#todo-list').on('dblclick', 'li', function () {
+        const $li = $(this);
+        const currentText = $li.text();
+
+        const $input = $('<input type="text" class="edit-task">').val(currentText);
+        $li.html($input);
+        $input.focus();
+
+        function saveTask() {
+          const newText = $input.val().trim();
+          $li.text(newText || currentText);
+        }
+
+        $input.on('keydown', function (e) {
+          if (e.key === 'Enter') {
+            saveTask();
+          }
+        });
+
+        $input.on('blur', function () {
+          saveTask();
+        });
+      });
+
+      // ✅ Add new task
+      function addTask() {
+        const taskText = $('#add-task-input').val().trim();
+        if (taskText !== '') {
+          const $newLi = $('<li>').text(taskText);
+          $('#todo-list').append($newLi);
+          $('#add-task-input').val('').focus();
+        }
+      }
+
+      $('#add-task-button').on('click', addTask);
+      $('#add-task-input').on('keydown', function (e) {
+        if (e.key === 'Enter') {
+          addTask();
+        }
+      });
+    });
+  </script>
+</body>
+</html>

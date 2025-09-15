@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>jQuery</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h2 id="2"> Hello world</h2>
+  <button id="btn">Click Me</button>
+  <p id="msg"></p>
+
+  <script>
+    $(document).ready(function() {
+    $("#btn").click(function() {
+    
+    $("#2").text("hello world! duplicate");
+      });
+    });
+
+  </script>
+</body>
+</html>
+
+
+ <!DOCTYPE html> 
+<html>
+<head>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>;
+</head>
+<body>
+  <h2>Hello jQuery</h2>
+  <h3>just for timepass</h3>
+  <button id="btn">Click Me</button>
+    <div class="temp">
+        <p>this is a different division
+            on which we are using the class tags using jquery
+        </p>
+    </div>
+    <input type="text" id="myInput">
+<p id="output">Hi this text</p>
+<ul id="list">
+  <li>Item 1</li>
+</ul>
+<button id="add">Add Item</button>
+<button id="addf">Add Ite first</button>
+<button id="remove">Remove Last</button>
+
+
+  <script>
+    $(document).ready(function(){
+      $("#btn").click(function(){
+        $("h2").text("Button Clicked!");
+        $("h3").text("Button Clicked! Duplicate");
+        $(".temp").css("background-color", "blue");
+        $("p").css("font-weight", "cursive");
+      });
+
+
+
+    $("#add").click(function(){
+      $("#list").append("<li>New Item appended from script</li>");
+    });
+    $("#addf").click(function(){
+      $("#list").prepend("<li>New Item prepended from script</li>");
+    });
+    $("#remove").click(function(){
+      $("#list li:first").remove();
+    });
+ 
+
+      $("#myInput").keydown(function(){
+      let val = $("#myInput").val();
+      $("#output").text(val);
+    });
+      $("#btn").dblclick(function(){
+        $("h2").text("Button Clicked Twice!");
+        $("h3").text("Button Clicked! Twice Duplicate");
+        $(".temp").css("background-color", "pink");
+        $("p").css("font-weight", "calibri");
+      });
+      $("#btn").hover(function(){
+        $("h2").text("Button Clicked but Hovered!");
+        $("h3").text("Button  and Hovered! Duplicate");
+        $(".temp").css("background-color", "yellow");
+        $("p").css("font-weight", "cursive");
+      });
+    });
+  </script>
+</body>
+</html> -->
